@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- font awesome -->
+    <script
+      src="https://kit.fontawesome.com/8d7b7c02c4.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- normalize css -->
+    <link rel="stylesheet" href="./normalize.css" />
+
+    <!-- main css -->
+    <link rel="stylesheet" href="./main.css" />
+    <title>Expense Tracker</title>
+  </head>
+  <body>
+    <aside class="sidebar">
+      <header class="sidebar-header">
+        <h2 class="app-name">Expense Tracker</h2>
+        <button class="btn-close-sidebar">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </header>
+
+      <div class="sidebar-container">
+        <div class="balance-container">
+          <h3 class="text-center">
+            Balance:¢<span class="balance amount"></span>
+          </h3>
+        </div>
+
+        <section class="income-container">
+          <h3 class="text-center">Income List</h3>
+          <div class="incomes-list container"></div>
+        </section>
+
+        <section class="expenditure-container">
+          <h3 class="text-center">Expenditure List</h3>
+          <div class="expenditures-list container"></div>
+        </section>
+      </div>
+    </aside>
+
+    <header class="main-header">
+      <button class="btn-open-sidebar">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </header>
+
+    <main>
+      <form class="expense-form">
+        <h2>expense tracker</h2>
+
+        <div class="form-controls">
+          <div class="form-control">
+            <label for="expense-name">Expense Name</label>
+            <input
+              type="text"
+              name="name"
+              class="name-input"
+              placeholder="e.g. pay rent"
+              autocomplete="off"
+            />
+          </div>
+
+          <div class="form-control">
+            <label for="amount">
+              Amount: (for expenditure enter negative value, for income enter
+              positive value)
+            </label>
+            <input
+              type="number"
+              name="amount"
+              class="amount-input"
+              placeholder="-50"
+              id="amount"
+              autocomplete="off"
+            />
+          </div>
+        </div>
+
+        <button type="submit" class="btn submit-btn">add expense</button>
+        <div class="form-alert"></div>
+      </form>
+      <p class="loading-text">Loading...</p>
+    </main>
+    <!-- axios -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"
+      integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="./browser-app.js"></script>
+  </body>
+</html>
