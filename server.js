@@ -4,19 +4,20 @@ const express = require("express");
 const app = express();
 const methods = require("./routes/methods");
 const connectDB = require("./db/connect");
-require("dotenv").config();
+const dotenv = require("dotenv");
+dotenv.config({ path: "./config/config.env" });
 
 app.use(express.json());
 app.use(express.static("./public"));
 
 app.use("/api/v1/expenses", methods);
 
-const port = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5000;
 const start = async () => {
   try {
     await connectDB(process.env.MONGO_URI);
-    app.listen(port, () => {
-      console.log(`server running on port ${port}...`);
+    app.listen(PORT, () => {
+      console.log(`server running on port ${PORT}...`);
     });
   } catch (err) {
     console.log(err);
