@@ -16,13 +16,13 @@
   --primary-300: #938dff;
   --primary-400: #7b74ff;
   /* main */
-  --primary-500: #645cff;
+  /* --primary-500: #645cff;
   --primary-600: #554ed9;
   --primary-700: #4640b3;
   --primary-800: #37338c;
   --primary-900: #282566;
   --primary-1000: #191740;
-  --primary-1100: #0a0919;
+  --primary-1100: #0a0919; */
   /* grey */
   --grey-0: #fafbfc;
   --grey-50: #f2f4f8;
@@ -43,21 +43,19 @@
   --white: #fff;
   --red-light: #f8d7da;
   --red-dark: #842029;
-  --green-light: #d1e7dd;
   --green-dark: #0f5132;
 
   /* typography */
   --headingFont: "Inconsolata", monospace;
   --bodyFont: "Montserrat", sans-serif;
-  --smallText: 0.7em;
+
   /* rest */
-  --backgroundColor: var(--grey-50);
-  --textColor: var(--grey-1000);
+
   --borderRadius: 0.25rem;
   --letterSpacing: 1px;
   --transition: 0.3s ease-in-out all;
   --max-width: 1120px;
-  --fixed-width: 500px;
+  --fixed-width: 400px;
   /* box shadows */
   --shadow-1: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
   --shadow-2: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
@@ -69,20 +67,12 @@
 }
 
 html {
-  font-size: 112.5%;
+  font-size: 100%;
 }
 
 body {
   background: var(--backgroundColor);
-  color: var(--textColor);
   font-family: var(--headingFont);
-  font-weight: 400;
-  line-height: 1.75;
-}
-
-p {
-  margin-bottom: 1.5rem;
-  max-width: 40em;
 }
 
 h1,
@@ -93,45 +83,35 @@ h5 {
   margin: 0;
 }
 
-ul {
-  padding: 0;
-  list-style-type: none;
-}
-
 a {
   text-decoration: none;
 }
-/*************
-     Buttons 
-*************/
+
+/* Buttons  */
+button {
+  border: none;
+  outline: none;
+}
 
 .btn {
-  cursor: pointer;
-  /* appearance: none; */
+  display: block;
+  width: max-content;
+  margin: 0 auto;
   color: var(--white);
-  background: var(--clr-primary-1);
+  background: var(--clr-primary-2);
   border: none;
   border-radius: var(--borderRadius);
-  letter-spacing: var(--letterSpacing);
-  padding: 0.375rem 0.75rem;
-  box-shadow: var(--shadow-1);
+  padding: 0.5rem 4rem;
   transition: var(--transition);
   text-transform: capitalize;
-  font-size: 1rem;
+  font-size: 0.8rem;
+  cursor: pointer;
 }
 
 @media (hover: hover) {
   .btn:hover {
-    color: var(--white);
-    background: var(--clr-primary-2);
-    box-shadow: var(--shadow-2);
+    background: var(--clr-primary-1);
   }
-}
-
-button.hipster {
-  color: var(--primary-500);
-  background: var(--primary-50);
-  box-shadow: var(--shadow-1);
 }
 
 /* ************ */
@@ -150,12 +130,12 @@ button.hipster {
   height: 100%;
   background: var(--white);
   transition: var(--transition);
-  box-shadow: var(--shadow-2);
-  /* transform: translate(-100%); */
+  box-shadow: var(--shadow-3);
+  transform: translate(-100%);
   z-index: 1;
   overflow-y: scroll;
-  padding: 2rem;
 }
+
 .show-sidebar {
   transform: translate(0);
 }
@@ -164,7 +144,7 @@ button.hipster {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  /* padding: 0 2rem; */
+  padding: 1rem 1.5rem;
 }
 
 .btn-close-sidebar {
@@ -185,14 +165,91 @@ button.hipster {
   color: var(--clr-primary-1);
 }
 
+/* expenses container *************/
+.income-container,
+.expenditure-container {
+  border: 1px solid hsl(0, 0%, 80%);
+  border-radius: 5px;
+  padding: 1rem;
+  max-width: 400px;
+  margin: 2rem 1rem;
+}
+
+.balance-container {
+  background: var(--clr-primary-1);
+  color: var(--white);
+  max-width: max-content;
+  margin: 0 auto;
+  margin-top: 2rem;
+  padding: 0.3rem 2rem;
+  border-radius: 5px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.empty-list {
+  color: lightgray;
+}
+
+.amount {
+  color: var(--clr-primary-2);
+}
+
+.expense-item {
+  padding: 0.8rem;
+  background: var(--white);
+  border-radius: var(--borderRadius);
+  box-shadow: var(--shadow-2);
+  border: 1px solid lightgray;
+  transition: var(--transition);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0.5rem 0;
+}
+
+.expense-item p {
+  margin: 0;
+}
+
+.loading-text {
+  visibility: hidden;
+  text-align: center;
+}
+
+/* control buttons */
+.control-btns {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.delete-btn,
+.edit-link {
+  background: transparent;
+  font-size: 0.8rem;
+  border: transparent;
+  cursor: pointer;
+}
+
+.edit-link {
+  color: var(--green-dark);
+}
+
+.delete-btn {
+  color: var(--red-dark);
+}
+
 /*************
      FORM 
 *************/
 form {
   background: var(--white);
   border-radius: var(--borderRadius);
-  box-shadow: var(--shadow-2);
-  padding: 2rem 2.5rem;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+  padding: 1.5rem;
 }
 
 .form-control {
@@ -204,18 +261,21 @@ label {
   font-size: 1rem;
   margin-bottom: 0.5rem;
   color: var(--clr-primary-1);
-  line-height: 1;
   text-align: left;
-  /* text-transform: capitalize; */
 }
 
 input {
   width: 100%;
   padding: 0.375rem 0.75rem;
+  font-size: 1rem;
   border-radius: var(--borderRadius);
   background: var(--grey-50);
   border-color: transparent;
   border: 1px solid var(--grey-300);
+}
+
+input:focus {
+  outline: 1px solid lightblue;
 }
 
 ::placeholder {
@@ -229,11 +289,11 @@ input {
 }
 
 .expense-form,
-.single-task-form {
-  width: 80vw;
+.edit-expense-form {
+  width: 90vw;
   max-width: var(--fixed-width);
   margin: 0 auto;
-  margin-top: 3rem;
+  margin-top: 5rem;
 }
 
 .expense-form h2 {
@@ -246,11 +306,9 @@ input {
 }
 
 .submit-btn {
-  width: 100%;
   margin-top: 1rem;
 }
 
-/* Basic Classes */
 .alert {
   padding: 0.375rem 0.75rem;
   margin-bottom: 1rem;
@@ -262,191 +320,64 @@ input {
   color: var(--green-dark);
   background-color: var(--green-light);
 }
+
 .alert-danger {
   color: var(--red-dark);
   background-color: var(--red-light);
 }
+
 .text-danger {
   color: var(--red-dark);
 }
+
 .text-success {
   color: var(--green-dark);
 }
-/* loading */
-@keyframes spinner {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-.loading {
-  width: 6rem;
-  height: 6rem;
-  border-radius: 50%;
-  border: 3px solid #ccc;
-  border-top-color: var(--clr-primary-5);
-  animation: spinner 0.6s linear infinite;
-}
-.loading {
-  margin: 0 auto;
-}
-/* form loading */
-
-.form-loading {
-  position: relative;
-}
-.form-loading::before {
-  background: var(--white);
-  position: absolute;
-  content: "";
-  height: 100%;
-  width: 100%;
-  top: 0;
-  left: 0;
-  border-radius: var(--borderRadius);
-  opacity: 0.8;
-}
-
-.form-loading::after {
-  content: "";
-  position: absolute;
-  top: calc(50% - 3rem);
-  left: calc(50% - 3rem);
-  width: 6rem;
-  height: 6rem;
-  border-radius: 50%;
-  border: 3px solid #ccc;
-  border-top-color: var(--clr-primary-5);
-  animation: spinner 0.6s linear infinite;
-}
 
 /*************
-     TASKS
+   single expense
 *************/
-.income-container,
-.expenditure-container,
-.balance-container {
-  border: 2px solid var(--clr-primary-1);
-  border-radius: 5px;
-  padding: 1rem;
-  max-width: 400px;
-  margin: 2rem 0;
+.edit-container {
+  display: grid;
+  min-height: 100vh;
+  place-content: center;
 }
 
-.text-center {
+.edit-expense-form h4 {
   text-align: center;
 }
 
-.amount {
-  color: var(--clr-primary-2);
-  letter-spacing: 2px;
-}
-
-.empty-list {
-  text-align: center;
-}
-
-.single-task {
-  padding: 0.5rem 1rem;
-  background: var(--white);
-  border-radius: var(--borderRadius);
-  box-shadow: var(--shadow-2);
-  transition: var(--transition);
-  display: flex;
-  justify-content: space-between;
+.edit-expense-form .form-control {
+  display: grid;
+  grid-template-columns: auto auto;
   align-items: center;
-  margin: 0.5rem 0;
+  justify-items: start;
+  gap: 0 0.8rem;
+}
+
+/* .edit-expense-btn */
+
+.edit-expense-form label {
+  margin-bottom: 0;
+}
+
+.back-link {
+  display: block;
+  width: max-content;
+  text-align: center;
+  margin-top: 3rem;
+  background: var(--clr-primary-2);
+  text-transform: capitalize;
+  border-radius: var(--borderRadius);
 }
 
 @media (hover: hover) {
-  .single-task:hover {
-    box-shadow: var(--shadow-4);
+  .back-link:hover {
+    opacity: 0.75;
   }
 }
 
-.single-task p {
-  margin: 0;
-  font-weight: bold;
-}
-
-.single-task .fa-check-circle {
-  font-size: 1rem;
-  color: var(--green-dark);
-  visibility: hidden;
-}
-.task-completed h5 {
-  text-decoration: line-through;
-}
-.task-completed .fa-check-circle {
-  visibility: visible;
-}
-.loading-text {
-  visibility: hidden;
-}
-/* Task Links */
-.task-links {
-  display: flex;
-  align-items: center;
-  gap: 0 0.5rem;
-}
-.delete-btn,
-.edit-link {
-  background: transparent;
-  font-size: 0.75rem;
-  border: transparent;
-  cursor: pointer;
-}
-.edit-link {
-  color: var(--green-dark);
-}
-.delete-btn {
-  color: var(--red-dark);
-}
-
-/*************
-   SINGLE TASK
-*************/
-
-.single-task-form h4 {
-  text-align: center;
-}
-
-.single-task-form p {
-  margin-bottom: 0;
-  margin-top: 0;
-}
-
-.single-task-form .form-control {
-  display: grid;
-  grid-template-columns: 150px 1fr;
-  align-items: center;
-  justify-items: start;
-  gap: 0 1rem;
-  margin-bottom: 0.75rem;
-}
-
-.single-task-form label {
-  margin-bottom: 0;
-  font-size: 1rem;
-}
-
-.task-edit-completed {
-  width: auto;
-}
-.back-link {
-  display: block;
-  width: 250px;
-  margin: 0 auto;
-  text-align: center;
-  margin-top: 6rem;
-  background: var(--black);
-}
-.back-link:hover {
-  background: var(--black);
-  opacity: 0.75;
-}
-
-.single-task-form .form-alert {
+.edit-expense-form .form-alert {
   text-align: center;
   margin-top: 1rem;
 }

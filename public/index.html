@@ -29,9 +29,7 @@
 
       <div class="sidebar-container">
         <div class="balance-container">
-          <h3 class="text-center">
-            Balance:¢<span class="balance amount"></span>
-          </h3>
+          <h3 class="text-center">Balance:GH¢ <span class="balance"></span></h3>
         </div>
 
         <section class="income-container">
@@ -65,11 +63,12 @@
               class="name-input"
               placeholder="e.g. pay rent"
               autocomplete="off"
+              id="expense-name"
             />
           </div>
 
           <div class="form-control">
-            <label for="amount">
+            <label for="expense-amount">
               Amount: (for expenditure enter negative value, for income enter
               positive value)
             </label>
@@ -78,8 +77,8 @@
               name="amount"
               class="amount-input"
               placeholder="-50"
-              id="amount"
               autocomplete="off"
+              id="expense-amount"
             />
           </div>
         </div>
@@ -90,12 +89,7 @@
       <p class="loading-text">Loading...</p>
     </main>
     <!-- axios -->
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"
-      integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script>
-    <script src="./browser-app.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="./script.js"></script>
   </body>
 </html>

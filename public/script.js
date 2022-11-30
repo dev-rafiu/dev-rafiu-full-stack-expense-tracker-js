@@ -8,8 +8,6 @@ const balance = document.querySelector(".balance");
 const incomesList = document.querySelector(".incomes-list");
 const expendituresList = document.querySelector(".expenditures-list");
 
-const expenseContainers = document.querySelectorAll(".container");
-
 const sidebar = document.querySelector(".sidebar");
 
 const btnOpenSidebar = document.querySelector(".btn-open-sidebar");
@@ -28,11 +26,11 @@ function createSingleExpense(expenses) {
     .map((expense) => {
       const { _id, expenseName, expenseAmount } = expense;
       return `
-       <div class="single-task">
-         <p>${expenseName}:¢<span class="amount">${expenseAmount}</span></p>
-        <div class="task-links">
+       <div class="expense-item">
+         <p>${expenseName}:GH¢ <span class="amount">${expenseAmount}</span></p>
+        <div class="control-btns">
         <!-- edit link -->
-        <a href="task.html?id=${_id}"  class="edit-link">
+        <a href="expense.html?id=${_id}"  class="edit-link">
         <i class="fas fa-edit"></i>
         </a>
         <!-- delete btn -->
@@ -65,10 +63,10 @@ const showExpenses = async () => {
     const incomeList = expenses.filter((expense) => {
       return expense.expenseAmount > 0;
     });
-    console.log(incomeList);
+
     const incomes = createSingleExpense(incomeList);
     if (incomes.length < 1) {
-      incomesList.innerHTML = `<h5 class="text-center">list is empty</h5>`;
+      incomesList.innerHTML = `<p class="text-center empty-list">list is empty</p>`;
     } else {
       incomesList.innerHTML = incomes;
     }
@@ -80,7 +78,7 @@ const showExpenses = async () => {
 
     const expenditures = createSingleExpense(expenditureList);
     if (expenditures.length < 1) {
-      expendituresList.innerHTML = `<h5 class="text-center">list is empty</h5>`;
+      expendituresList.innerHTML = `<p class="text-center empty-list">list is empty</p>`;
     } else {
       expendituresList.innerHTML = expenditures;
     }

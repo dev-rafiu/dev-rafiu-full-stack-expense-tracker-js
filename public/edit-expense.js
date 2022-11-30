@@ -1,11 +1,12 @@
-const taskIDDOM = document.querySelector(".task-edit-id");
-const expenseNameDOM = document.querySelector(".task-edit-name");
-const expenseAmountDom = document.querySelector(".expense-edit-amount");
-// const taskCompletedDOM = document.querySelector(".task-edit-completed");
-const editFormDOM = document.querySelector(".single-task-form");
-const editBtnDOM = document.querySelector(".task-edit-btn");
+const expenseId = document.querySelector(".expense-id");
+const expenseNameDOM = document.querySelector(".expense-name");
+const expenseAmountDOM = document.querySelector(".expense-amount");
+
+const editForm = document.querySelector(".edit-expense-form");
+const editBtnDOM = document.querySelector(".edit-expense-btn");
 const formAlertDOM = document.querySelector(".form-alert");
 const params = window.location.search;
+
 const id = new URLSearchParams(params).get("id");
 let tempName;
 
@@ -16,27 +17,25 @@ const showExpense = async () => {
     } = await axios.get(`/api/v1/expenses/${id}`);
     const { _id: expenseID, expenseName, expenseAmount } = expense;
 
-    taskIDDOM.textContent = expenseID;
+    expenseId.textContent = expenseID;
 
     expenseNameDOM.value = expenseName;
 
-    expenseAmountDom.value = expenseAmount;
+    expenseAmountDOM.value = expenseAmount;
 
     tempName = expenseName;
   } catch (error) {
     console.log(error);
   }
 };
-
 showExpense();
 
-editFormDOM.addEventListener("submit", async (e) => {
-  console.log(200);
+editForm.addEventListener("submit", async (e) => {
   editBtnDOM.textContent = "Loading...";
   e.preventDefault();
   try {
     const name = expenseNameDOM.value;
-    const amount = expenseAmountDom.value;
+    const amount = expenseAmountDOM.value;
 
     const {
       data: { expense },
@@ -46,24 +45,20 @@ editFormDOM.addEventListener("submit", async (e) => {
     });
 
     const { _id: expenseID, expenseName, expenseAmount } = expense;
-
-    taskIDDOM.textContent = expenseID;
-
+    expenseId.textContent = expenseID;
     expenseNameDOM.value = expenseName;
-
-    expenseAmountDom.value = expenseAmount;
-
-    tempName = expenseName;
+    expenseAmountDOM.value = expenseAmount;
+    // tempName = expenseName;
     formAlertDOM.style.display = "block";
-    formAlertDOM.textContent = `success, edited task`;
+    formAlertDOM.textContent = `edited sucessfully`;
     formAlertDOM.classList.add("text-success");
   } catch (error) {
-    console.error(error);
     expenseNameDOM.value = tempName;
     formAlertDOM.style.display = "block";
     formAlertDOM.innerHTML = `error, please try again`;
   }
   editBtnDOM.textContent = "Edit";
+
   setTimeout(() => {
     formAlertDOM.style.display = "none";
     formAlertDOM.classList.remove("text-success");
