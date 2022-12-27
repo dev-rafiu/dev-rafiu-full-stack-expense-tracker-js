@@ -53,7 +53,6 @@ const updateExpense = async (req, res) => {
 };
 
 const deleteExpense = async (req, res) => {
-  console.log(200);
   try {
     const { id: expenseID } = req.params;
     const expense = await Expense.findOneAndDelete({ _id: expenseID });

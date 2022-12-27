@@ -7,7 +7,7 @@ const {
   getExpense,
   updateExpense,
   deleteExpense,
-} = require("../controllers/methods");
+} = require("../controllers/expense-controllers.js");
 
 router.route("/").get(getAllExpenses).post(createNewExpense);
 router.route("/:id").get(getExpense).patch(updateExpense).delete(deleteExpense);

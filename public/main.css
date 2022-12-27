@@ -15,14 +15,7 @@
   --primary-200: #aaa5ff;
   --primary-300: #938dff;
   --primary-400: #7b74ff;
-  /* main */
-  /* --primary-500: #645cff;
-  --primary-600: #554ed9;
-  --primary-700: #4640b3;
-  --primary-800: #37338c;
-  --primary-900: #282566;
-  --primary-1000: #191740;
-  --primary-1100: #0a0919; */
+
   /* grey */
   --grey-0: #fafbfc;
   --grey-50: #f2f4f8;
@@ -38,12 +31,13 @@
   --grey-1000: #333538;
   --grey-1100: #141516;
 
+  --red-dark: #842029;
+  --green-dark: #0f5132;
+
   /* rest */
   --black: #222;
   --white: #fff;
   --red-light: #f8d7da;
-  --red-dark: #842029;
-  --green-dark: #0f5132;
 
   /* typography */
   --headingFont: "Inconsolata", monospace;
@@ -71,7 +65,7 @@ html {
 }
 
 body {
-  background: var(--backgroundColor);
+  background: lightgray;
   font-family: var(--headingFont);
 }
 
@@ -181,7 +175,7 @@ button {
   max-width: max-content;
   margin: 0 auto;
   margin-top: 2rem;
-  padding: 0.3rem 2rem;
+  padding: 0.5rem 2rem;
   border-radius: 5px;
 }
 
@@ -190,7 +184,7 @@ button {
 }
 
 .empty-list {
-  color: lightgray;
+  color: gray;
 }
 
 .amount {
@@ -266,8 +260,8 @@ label {
 
 input {
   width: 100%;
-  padding: 0.375rem 0.75rem;
-  font-size: 1rem;
+  padding: 0.5rem 0.75rem;
+  font-size: 1.1rem;
   border-radius: var(--borderRadius);
   background: var(--grey-50);
   border-color: transparent;
@@ -286,6 +280,7 @@ input:focus {
   color: var(--red-dark);
   letter-spacing: var(--letterSpacing);
   text-transform: capitalize;
+  text-align: center;
 }
 
 .expense-form,

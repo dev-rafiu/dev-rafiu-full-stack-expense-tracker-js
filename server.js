@@ -1,8 +1,6 @@
-// require("./db/connect");
-
 const express = require("express");
 const app = express();
-const methods = require("./routes/methods");
+const expenseControllers = require("./routes/controllers");
 const connectDB = require("./db/connect");
 const dotenv = require("dotenv");
 dotenv.config({ path: "./config/config.env" });
@@ -10,9 +8,9 @@ dotenv.config({ path: "./config/config.env" });
 app.use(express.json());
 app.use(express.static("./public"));
 
-app.use("/api/v1/expenses", methods);
+app.use("/api/v1/expenses", expenseControllers);
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 3000;
 const start = async () => {
   try {
     await connectDB(process.env.MONGO_URI);

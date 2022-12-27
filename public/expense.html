@@ -4,13 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- favicon -->
-    <!-- <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" /> -->
-    <!-- normalize -->
-    <!-- <link rel="stylesheet" href="./normalize.css" /> -->
-    <!-- main  -->
     <link rel="stylesheet" href="./main.css" />
-
     <title>Edit Expense</title>
   </head>
   <body>
@@ -36,7 +30,7 @@
         <div class="form-control">
           <label for="expense-amount">Expense Amount</label>
           <input
-            type="text"
+            type="number"
             name="amount"
             class="expense-amount"
             autocomplete="off"
@@ -44,7 +38,7 @@
           />
         </div>
         <button type="submit" class="btn edit-expense-btn">edit</button>
-        <div class="form-alert"></div>
+        <div class="form-alert text-center"></div>
       </form>
 
       <a href="index.html" class="btn back-link">back to create area</a>
