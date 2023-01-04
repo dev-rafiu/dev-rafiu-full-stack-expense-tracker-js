@@ -65,8 +65,8 @@ html {
 }
 
 body {
-  background: lightgray;
-  font-family: var(--headingFont);
+  background: rgb(239, 242, 249);
+  font-family: var(--bodyFont);
 }
 
 h1,
@@ -110,9 +110,15 @@ button {
 
 /* ************ */
 .main-header {
-  display: flex;
   box-shadow: var(--shadow-1);
-  padding: 1rem 5rem;
+  padding: 1rem;
+}
+
+.main-header .center {
+  width: min(95%, 900px);
+  margin: 0 auto;
+  display: flex;
+  align-content: flex-end;
 }
 
 .sidebar {
@@ -145,7 +151,7 @@ button {
   color: var(--red-dark);
 }
 
-.btn-open-sidebar,
+.btn-menu,
 .btn-close-sidebar {
   display: inline-block;
   margin-left: auto;
@@ -155,7 +161,7 @@ button {
   cursor: pointer;
 }
 
-.btn-open-sidebar {
+.btn-menu {
   color: var(--clr-primary-1);
 }
 

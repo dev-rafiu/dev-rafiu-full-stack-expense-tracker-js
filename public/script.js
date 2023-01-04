@@ -9,10 +9,10 @@ const balance = document.querySelector(".balance");
 const incomeList = document.querySelector(".income-list");
 const expenditureList = document.querySelector(".expenditure-list");
 
-const btnOpenSidebar = document.querySelector(".btn-open-sidebar");
+const btnMenu = document.querySelector(".btn-menu");
 const btnCloseSidebar = document.querySelector(".btn-close-sidebar");
 
-btnOpenSidebar.addEventListener("click", () => {
+btnMenu.addEventListener("click", () => {
   sidebar.classList.add("show-sidebar");
 });
 

@@ -23,6 +23,7 @@
       <header class="sidebar-header">
         <h2 class="app-name">Expense Tracker</h2>
         <button class="btn-close-sidebar">
+          <span class="sr-only">close menu</span>
           <i class="fa-solid fa-xmark"></i>
         </button>
       </header>
@@ -45,15 +46,17 @@
     </aside>
 
     <header class="main-header">
-      <button class="btn-open-sidebar">
-        <i class="fa-solid fa-bars"></i>
-      </button>
+      <div class="center">
+        <button class="btn-menu">
+          <span class="sr-only">menu</span>
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
     </header>
 
     <main>
       <form class="expense-form">
         <h2>expense tracker</h2>
-
         <div class="form-controls">
           <div class="form-control">
             <label for="expense-name">Expense Name</label>
